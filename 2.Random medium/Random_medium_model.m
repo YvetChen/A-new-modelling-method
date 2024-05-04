@@ -5,17 +5,17 @@ clear all
 
 close all
 
-vp0=4.319965685826324e+03;%背景速度与密度
+vp0=4.319965685826324e+03;%Background velocity and density
 
 vs0=2.174229226018436e+03;
 
 rau0=2750;
 
-K=0.5;%一般取0.3-0.8之间
+K=0.5;%0.3-0.8
 
-eps=0.08;%标准差
+eps=0.08;%standard deviation
 
-A=1;%介质在x，z方向上的自相关长度
+A=1;%The autocorrelation length of the medium in the x and z directions
 
 B=1;
 
@@ -27,25 +27,26 @@ z=1:1:500;
 
 b=x'*x/(A^2)+z'*z/(B^2);
 
-c=exp(-sqrt(b));%自相关函数
+c=exp(-sqrt(b));%autocorrelation function
 
 %c=exp(-b);
 
-d=fft2(c,50,50);%产生随机过程功率谱
+d=fft2(c,50,50);%Generate a random process power spectrum
 
-e=unifrnd(0,2*pi,50,50);%产生二维随机场
+e=unifrnd(0,2*pi,50,50);%Generates two-dimensional random fields
 
 %normplot(e);
 
-f=sqrt(d).*exp(-i*e);%产生随机功率谱
+f=sqrt(d).*exp(-i*e);%Generate a random power spectrum
 
-g=ifft2(f,50,50);%得到空间域的随机扰动
+g=ifft2(f,50,50);%The random disturbance of the space domain is obtained
 
 h=real(g);
 
-u=mean2(h(:));%均值
+u=mean2(h(:));%mean value
 
-l=var(h(:));%方差
+l=var(h(:));%variance
+
 
 m=eps/sqrt(l)*(h-u);
 
