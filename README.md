@@ -1,5 +1,3 @@
-
-
 # What files are what
 
 The top level directory structure groups source code and input files as follow:
@@ -12,4 +10,3 @@ The top level directory structure groups source code and input files as follow:
 | ```2.Random medium/```           | code for calculating the velocity and density with the coordinates, and examples of obtained data.|
 | ```3.Application in comsol/```   | the code that the model applies to the software |
 | ```Data.xlsx```                  | simulation results data summary |
-
